@@ -14,7 +14,9 @@ echo set /a animspeed=%animspeed%>> values.bat
 echo set user=%user%>> values.bat
 echo set host=%host%>> values.bat
 echo set /a cogversion=%cogversion%>> values.bat
-echo set /a version=%version%>> values.bat
+echo set /a versiond1=1>> values.bat
+echo set /a versiond2=0>> values.bat
+echo set /a versiond3=1>> values.bat
 echo Saved!
 timeout /t 3 > nul
 goto %flashback%
@@ -28,9 +30,9 @@ if "%user%" equ "user" (
 )
 :choosename
 cls
-echo Welcome to Scup 1.0.0
+echo Welcome to Scup 1.0.1
 echo Made by dk865
-echo Windows Gear version: Cogwheel Version %cogversion%
+echo Windows Gear version: Cogwheel Version 1
 echo.
 echo Pick a username. You can change this anytime later.
 echo.
@@ -85,8 +87,8 @@ echo This bottle tastes like 865 (409-1021)
 :menu
 set flashback=menu
 cls
-echo Welcome to Scup v%version%!
-echo Windows Gear version: Cogwheel v%cogversion%
+echo Welcome to Scup v1.0.1!
+echo Windows Gear version: Cogwheel v1
 echo Made by dk865
 echo.
 echo Scup is a game where you need to find the Gold hidden under one of 3 cups, that the Dealer will mix up. This game is rather simple and very easy, but it is random!
@@ -234,12 +236,18 @@ if "%bugyn%" equ "y" (
 
 :whatsnew
 cls
+echo Scup Version 1.0.1
+echo.
+echo Just fixed some very minor bugs, such as an invalid timeout command, and the scup version not displaying the 3 didgets correctly.
+echo.
+echo.
 echo Scup Version 1.0.0
 echo.
 echo Just released this game! Took me a week to devolep, but hope for future updates! (: I chose the terminal input name to be cogwheel, because they don't depend on, or use any other gears. This code doesn't depend on any packages, or anything else. You just need the default system terminal, and everything is ready to go! (hopefully lol)
 echo.
 echo. Visit https://sites.google.com/view/rust865/cogwheel/cogwin/scup for more info and future updates for this game!
 echo -Dylan (dk865)
+echo ---------------
 echo.
 echo My plans as of this current release:
 echo.
@@ -252,8 +260,7 @@ goto menu
 :game
 if "%coins%" LEQ "-1" (
      echo You don't have enough coins to keep playing! Reseting the Game!!!
-     cd ..
-     cd assets
+     pause
      call reset.bat
      goto start
 ) else (
@@ -364,7 +371,6 @@ echo    -----------------------------------------------------------------
 echo.
 if "%choice%" equ "1" (
     set /a bet*=2
-    timeout /t .2 > nul
     set /a coins+=bet
     timeout /t 1 > nul
     echo Nice Guess! You got it correct! +%bet% Coins.
@@ -522,7 +528,6 @@ echo    -----------------------------------------------------------------
 echo.
 if "%choice%" equ "2" (
     set /a bet*=2
-    timeout /t .2 > nul
     set /a coins+=bet
     timeout /t 1 > nul
     echo Nice Guess! You got it correct! +%bet% Coins.
@@ -648,7 +653,6 @@ echo    -----------------------------------------------------------------
 echo.
 if "%choice%" equ "3" (
     set /a bet*=2
-    timeout /t .2 > nul
     set /a coins+=bet
     timeout /t 1 > nul
     echo Nice Guess! You got it correct! +%bet% Coins.
