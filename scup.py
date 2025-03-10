@@ -70,7 +70,7 @@ def cupis3():
     cupdisp3.config(image=cupimg2)
 
 def websitevisit():
-    url = "https://sites.google.com/view/rust865"
+    url = "https://dk865.github.io"
     webbrowser.open(url)
 
 
